@@ -1,0 +1,33 @@
+v=14
+graph=[[] for i in range(v)]
+visited=[False for i in range(v)]
+def DFS(s,d,visited):
+  if s==d:
+    print(s, '-destination',end=' ')
+    return
+  visited[s]=True
+  print(s,end=' ')
+  for p in graph[s]:
+    if visited[p]==False:
+      DFS(p,d,visited)
+
+def addedge(a,b):
+  graph[a].append(b)
+  graph[b].append(a)
+
+addedge(0, 1)
+addedge(0, 2)
+addedge(0, 3)
+addedge(1, 4)
+addedge(1, 5)
+addedge(2, 6)
+addedge(2, 7)
+addedge(3, 8)
+addedge(8, 9)
+addedge(8, 10)
+addedge(9, 11)
+addedge(9, 12)
+addedge(9, 13)
+source=int(input("Enter source : "))
+destination=int(input("Enter destination : "))
+DFS(source,destination,visited)
